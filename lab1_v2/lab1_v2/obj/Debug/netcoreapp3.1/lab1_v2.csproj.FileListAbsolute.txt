@@ -1,0 +1,14 @@
+C:\Users\Smart\source\repos\lab1_v2\lab1_v2\bin\Debug\netcoreapp3.1\lab1_v2.exe
+C:\Users\Smart\source\repos\lab1_v2\lab1_v2\bin\Debug\netcoreapp3.1\lab1_v2.deps.json
+C:\Users\Smart\source\repos\lab1_v2\lab1_v2\bin\Debug\netcoreapp3.1\lab1_v2.runtimeconfig.json
+C:\Users\Smart\source\repos\lab1_v2\lab1_v2\bin\Debug\netcoreapp3.1\lab1_v2.runtimeconfig.dev.json
+C:\Users\Smart\source\repos\lab1_v2\lab1_v2\bin\Debug\netcoreapp3.1\lab1_v2.dll
+C:\Users\Smart\source\repos\lab1_v2\lab1_v2\bin\Debug\netcoreapp3.1\lab1_v2.pdb
+C:\Users\Smart\source\repos\lab1_v2\lab1_v2\bin\Debug\netcoreapp3.1\Lib.dll
+C:\Users\Smart\source\repos\lab1_v2\lab1_v2\bin\Debug\netcoreapp3.1\Lib.pdb
+C:\Users\Smart\source\repos\lab1_v2\lab1_v2\obj\Debug\netcoreapp3.1\lab1_v2.csprojAssemblyReference.cache
+C:\Users\Smart\source\repos\lab1_v2\lab1_v2\obj\Debug\netcoreapp3.1\lab1_v2.AssemblyInfoInputs.cache
+C:\Users\Smart\source\repos\lab1_v2\lab1_v2\obj\Debug\netcoreapp3.1\lab1_v2.AssemblyInfo.cs
+C:\Users\Smart\source\repos\lab1_v2\lab1_v2\obj\Debug\netcoreapp3.1\lab1_v2.csproj.CopyComplete
+C:\Users\Smart\source\repos\lab1_v2\lab1_v2\obj\Debug\netcoreapp3.1\lab1_v2.dll
+C:\Users\Smart\source\repos\lab1_v2\lab1_v2\obj\Debug\netcoreapp3.1\lab1_v2.pdb
