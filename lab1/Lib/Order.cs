@@ -79,7 +79,7 @@ namespace Lib
 
         public List<string> GetBill()
         {
-            Bill.Add("TOTAL PRICE: " + TotalPrice);
+            Bill.Add("TOTAL PRICE: " + TotalPrice.ToString());
             return Bill;
         }
     }
