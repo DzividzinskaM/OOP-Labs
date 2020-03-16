@@ -33,8 +33,8 @@ namespace ClassLibrary1
 
         public override void CreateCheck()
         {
-            Check Order = new Check(SelectedDish);
-            SupperCheck = Order.OrderCheck;
+            /*Check Order = new Check(SelectedDish);
+            SupperCheck = Order.OrderCheck;*/
         }
     }
 }

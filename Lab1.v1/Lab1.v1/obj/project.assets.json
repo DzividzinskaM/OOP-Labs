@@ -32,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Smart\\source\\repos\\lab1.v1\\Lab1.v1\\Lab1.v1.csproj",
+      "projectUniqueName": "C:\\Users\\Smart\\source\\repos\\OOP\\Lab1.v1\\Lab1.v1\\Lab1.v1.csproj",
       "projectName": "Lab1.v1",
-      "projectPath": "C:\\Users\\Smart\\source\\repos\\lab1.v1\\Lab1.v1\\Lab1.v1.csproj",
+      "projectPath": "C:\\Users\\Smart\\source\\repos\\OOP\\Lab1.v1\\Lab1.v1\\Lab1.v1.csproj",
       "packagesPath": "C:\\Users\\Smart\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Smart\\source\\repos\\lab1.v1\\Lab1.v1\\obj\\",
+      "outputPath": "C:\\Users\\Smart\\source\\repos\\OOP\\Lab1.v1\\Lab1.v1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Smart\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -52,8 +52,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Smart\\source\\repos\\lab1.v1\\ClassLibrary1\\ClassLibrary1.csproj": {
-              "projectPath": "C:\\Users\\Smart\\source\\repos\\lab1.v1\\ClassLibrary1\\ClassLibrary1.csproj"
+            "C:\\Users\\Smart\\source\\repos\\OOP\\Lab1.v1\\ClassLibrary1\\ClassLibrary1.csproj": {
+              "projectPath": "C:\\Users\\Smart\\source\\repos\\OOP\\Lab1.v1\\ClassLibrary1\\ClassLibrary1.csproj"
             }
           }
         }

@@ -8,6 +8,7 @@ namespace Lab1.v1
     {
         static void Main(string[] args)
         {
+            
             Console.WriteLine("---------------/*BREAKFAST*/---------------");
             BreakfastBuilder breakfast = new BreakfastBuilder();
             ShowMenu(breakfast.BreakfastMenu);
@@ -37,6 +38,8 @@ namespace Lab1.v1
             supper.CreateCheck();
             ShowCheck(supper.SupperCheck);
         }
+
+
 
         static void ShowMenu(List<Dish> Menu)
         {

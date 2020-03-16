@@ -4,15 +4,24 @@ using System.Text;
 
 namespace ClassLibrary1
 {
-    public class Dish
+    internal enum TMeal
     {
-        public string Name;
-        public double Price;
+        breakfast, 
+        dinner, 
+        supper
+    }
+    internal class Dish
+    {
+        internal string Name;
+        internal double Price;
+        internal string TypeMeal;
 
-        public Dish(string n, double p)
+        internal Dish(string n, double p, string t)
         {
             Name = n;
             Price = p;
+            TypeMeal = t;
         }
+        
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ClassLibrary1
 {
-    public class DinnerBuilder : MealBuider
+    /*public class DinnerBuilder : MealBuider
     {
         public List<Dish> DinnerMenu = new List<Dish>();
         public List<Dish> SelectedDish = new List<Dish>();
@@ -40,5 +40,5 @@ namespace ClassLibrary1
             Check Order = new Check(SelectedDish);
             DinnerCheck= Order.OrderCheck;
         }
-    }
+    }*/
 }

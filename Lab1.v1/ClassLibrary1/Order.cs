@@ -4,29 +4,29 @@ using System.Text;
 
 namespace ClassLibrary1
 {
-    class Check
+    public class Order
     {
-        private List<Dish> SelectedDish = new List<Dish>();
-        public List<string> OrderCheck = new List<string>();
-        private double TotalPrice;
+        private List<Dish> Menu = new List<Dish>();
+        private string typeMeal;
 
-        public Check(List<Dish> SD)
+        public Order(string t)
         {
-            SelectedDish = SD;
-            CreateCheck();
-        }
-
-        public void CreateCheck()
-        {
-            foreach (var value in SelectedDish)
+            if (t == "breakfast" || t == "dinner" || t == "supper")
             {
-                string DishForCheck = value.Name + ' ' + value.Price;
-                OrderCheck.Add(DishForCheck);
-                TotalPrice += value.Price;
+
             }
-            string PriceForCheck = "Total price:" + TotalPrice;
-            OrderCheck.Add(PriceForCheck);
+           
         }
+
+        public void SetRandomMenu()
+        {
+            
+        }
+
+       /* public List<Dish> getMenu()
+        {
+            return Menu;
+        }*/
 
     }
 }
