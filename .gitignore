@@ -1,9 +1,14 @@
 lab1/lab1_v2.sln
 lab1/Lib/bin/
 lab1/Lib/obj/
-lab1/Lib/Lib/csproj
+lab1/Lib/Lib.csproj
 lab1/lab1_v2/bin/
 lab1/lab1_v2/obj/
 lab1/lab1_v2.csproj
 Lab1.v1/
-
+Lab2/Lab2/bin/
+Lab2/Lab2/obj
+Lab2/Lab2/Lab2.csproj
+Lab2/LibLab2/bin/
+Lab2/LibLab2/obj/
+Lab2/LibLab2/LibLab2.csproj
