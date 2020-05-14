@@ -1,0 +1,14 @@
+C:\Users\Smart\source\repos\Lab5\Lab5\obj\Debug\netcoreapp3.1\Lab5.csprojAssemblyReference.cache
+C:\Users\Smart\source\repos\Lab5\Lab5\obj\Debug\netcoreapp3.1\Lab5.AssemblyInfoInputs.cache
+C:\Users\Smart\source\repos\Lab5\Lab5\obj\Debug\netcoreapp3.1\Lab5.AssemblyInfo.cs
+C:\Users\Smart\source\repos\Lab5\Lab5\bin\Debug\netcoreapp3.1\Lab5.exe
+C:\Users\Smart\source\repos\Lab5\Lab5\bin\Debug\netcoreapp3.1\Lab5.deps.json
+C:\Users\Smart\source\repos\Lab5\Lab5\bin\Debug\netcoreapp3.1\Lab5.runtimeconfig.json
+C:\Users\Smart\source\repos\Lab5\Lab5\bin\Debug\netcoreapp3.1\Lab5.runtimeconfig.dev.json
+C:\Users\Smart\source\repos\Lab5\Lab5\bin\Debug\netcoreapp3.1\Lab5.dll
+C:\Users\Smart\source\repos\Lab5\Lab5\bin\Debug\netcoreapp3.1\Lab5.pdb
+C:\Users\Smart\source\repos\Lab5\Lab5\bin\Debug\netcoreapp3.1\Lab5Lib.dll
+C:\Users\Smart\source\repos\Lab5\Lab5\bin\Debug\netcoreapp3.1\Lab5Lib.pdb
+C:\Users\Smart\source\repos\Lab5\Lab5\obj\Debug\netcoreapp3.1\Lab5.csproj.CopyComplete
+C:\Users\Smart\source\repos\Lab5\Lab5\obj\Debug\netcoreapp3.1\Lab5.dll
+C:\Users\Smart\source\repos\Lab5\Lab5\obj\Debug\netcoreapp3.1\Lab5.pdb
