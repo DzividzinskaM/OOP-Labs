@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Smart\\source\\repos\\Lab5\\Lab5\\Lab5.csproj": {}
+    "C:\\Users\\Smart\\source\\repos\\OOP\\Lab5\\Lab5\\Lab5.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Smart\\source\\repos\\Lab5\\Lab5Lib\\Lab5Lib.csproj": {
+    "C:\\Users\\Smart\\source\\repos\\OOP\\Lab5\\Lab5Lib\\Lab5Lib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Smart\\source\\repos\\Lab5\\Lab5Lib\\Lab5Lib.csproj",
+        "projectUniqueName": "C:\\Users\\Smart\\source\\repos\\OOP\\Lab5\\Lab5Lib\\Lab5Lib.csproj",
         "projectName": "Lab5Lib",
-        "projectPath": "C:\\Users\\Smart\\source\\repos\\Lab5\\Lab5Lib\\Lab5Lib.csproj",
+        "projectPath": "C:\\Users\\Smart\\source\\repos\\OOP\\Lab5\\Lab5Lib\\Lab5Lib.csproj",
         "packagesPath": "C:\\Users\\Smart\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Smart\\source\\repos\\Lab5\\Lab5Lib\\obj\\",
+        "outputPath": "C:\\Users\\Smart\\source\\repos\\OOP\\Lab5\\Lab5Lib\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Smart\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -56,14 +56,14 @@
         }
       }
     },
-    "C:\\Users\\Smart\\source\\repos\\Lab5\\Lab5\\Lab5.csproj": {
+    "C:\\Users\\Smart\\source\\repos\\OOP\\Lab5\\Lab5\\Lab5.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Smart\\source\\repos\\Lab5\\Lab5\\Lab5.csproj",
+        "projectUniqueName": "C:\\Users\\Smart\\source\\repos\\OOP\\Lab5\\Lab5\\Lab5.csproj",
         "projectName": "Lab5",
-        "projectPath": "C:\\Users\\Smart\\source\\repos\\Lab5\\Lab5\\Lab5.csproj",
+        "projectPath": "C:\\Users\\Smart\\source\\repos\\OOP\\Lab5\\Lab5\\Lab5.csproj",
         "packagesPath": "C:\\Users\\Smart\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Smart\\source\\repos\\Lab5\\Lab5\\obj\\",
+        "outputPath": "C:\\Users\\Smart\\source\\repos\\OOP\\Lab5\\Lab5\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Smart\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -79,8 +79,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\Smart\\source\\repos\\Lab5\\Lab5Lib\\Lab5Lib.csproj": {
-                "projectPath": "C:\\Users\\Smart\\source\\repos\\Lab5\\Lab5Lib\\Lab5Lib.csproj"
+              "C:\\Users\\Smart\\source\\repos\\OOP\\Lab5\\Lab5Lib\\Lab5Lib.csproj": {
+                "projectPath": "C:\\Users\\Smart\\source\\repos\\OOP\\Lab5\\Lab5Lib\\Lab5Lib.csproj"
               }
             }
           }

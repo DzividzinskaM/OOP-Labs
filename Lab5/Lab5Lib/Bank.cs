@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Lab5Lib;
+using System.Xml;
 
 namespace Lab5Lib
 {
@@ -74,6 +75,16 @@ namespace Lab5Lib
             }
         }
 
+       
+
+       
+
+        public void getInfoFromXML()
+        {
+            XmlDocument document = new XmlDocument();
+            document.Load("BANKS.xml");
+
+        }
 
     }
 }

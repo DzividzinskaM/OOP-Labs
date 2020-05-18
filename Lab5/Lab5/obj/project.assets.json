@@ -32,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Smart\\source\\repos\\Lab5\\Lab5\\Lab5.csproj",
+      "projectUniqueName": "C:\\Users\\Smart\\source\\repos\\OOP\\Lab5\\Lab5\\Lab5.csproj",
       "projectName": "Lab5",
-      "projectPath": "C:\\Users\\Smart\\source\\repos\\Lab5\\Lab5\\Lab5.csproj",
+      "projectPath": "C:\\Users\\Smart\\source\\repos\\OOP\\Lab5\\Lab5\\Lab5.csproj",
       "packagesPath": "C:\\Users\\Smart\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Smart\\source\\repos\\Lab5\\Lab5\\obj\\",
+      "outputPath": "C:\\Users\\Smart\\source\\repos\\OOP\\Lab5\\Lab5\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Smart\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -52,8 +52,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Smart\\source\\repos\\Lab5\\Lab5Lib\\Lab5Lib.csproj": {
-              "projectPath": "C:\\Users\\Smart\\source\\repos\\Lab5\\Lab5Lib\\Lab5Lib.csproj"
+            "C:\\Users\\Smart\\source\\repos\\OOP\\Lab5\\Lab5Lib\\Lab5Lib.csproj": {
+              "projectPath": "C:\\Users\\Smart\\source\\repos\\OOP\\Lab5\\Lab5Lib\\Lab5Lib.csproj"
             }
           }
         }

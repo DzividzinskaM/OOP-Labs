@@ -30,6 +30,19 @@ namespace Lab5Lib
             addCurrency(currency, percent, minAdvance, maxSum);
         }
 
+        public CreditInfo(int id, string name, int term, 
+            Dictionary<Currency, double> CurrencyPercent,
+            Dictionary<Currency, double> StartSum,
+            Dictionary<Currency, double> MaxSum)
+        {
+            this.id = id;
+            this.name = name;
+            this.term = term;
+            this.CurrencyPercent = CurrencyPercent;
+            this.StartSum = StartSum;
+            this.MaxSum = MaxSum;
+        }
+
 
         public void addCurrency(Currency currency, double percent, double startAdvance,
             double max)

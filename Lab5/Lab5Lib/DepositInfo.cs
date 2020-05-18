@@ -17,7 +17,7 @@ namespace Lab5Lib
         public readonly Dictionary<Currency, double> startSum =
             new Dictionary<Currency, double>();
 
-        public DepositInfo(int id, string name, short term,
+        public DepositInfo(int id, string name, int term,
             double start, double percent, Currency currency)
         {
             this.id = id;
@@ -26,6 +26,17 @@ namespace Lab5Lib
 
             addCurrency(currency, percent, start);
 
+        }
+
+        public DepositInfo(int id, string name, int term,
+            Dictionary<Currency, double> CurrencyPercent,
+            Dictionary<Currency, double> startSum
+            )
+        {
+            this.id = id;
+            this.name = name;
+            this.CurrencyPercent = CurrencyPercent;
+            this.startSum = startSum;
         }
         public void addCurrency(Currency currency, double percent, double start)
         {
