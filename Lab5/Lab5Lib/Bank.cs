@@ -11,7 +11,7 @@ namespace Lab5Lib
         public string name { get; set; }
         public string address { get; set; }
         public string phone { get; set; }
-        public List<Client> Clients = new List<Client>();
+        public List<Client> Clients = new List<Client>(); 
         public List<DepositInfo> deposits = new List<DepositInfo>();
         public List<CreditInfo> credits = new List<CreditInfo>();
      

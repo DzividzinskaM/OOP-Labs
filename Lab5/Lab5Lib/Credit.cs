@@ -18,6 +18,18 @@ namespace Lab5Lib
         public DateTime startDate { get; }
         public DateTime endDate { get; }
 
+        public Credit(int creditId, int clientId, double sum,
+            double startSum, Currency currency, DateTime start, 
+            DateTime end)
+        {
+            this.creditId = creditId;
+            this.clientId = clientId;
+            this.sum = sum;
+            this.startSum = startSum;
+            this.currency = currency;
+            startDate = start;
+            endDate = end;
+        }
         public Credit(CreditInfo credit, Client client, double requstSum,
             double advance, Currency currency, DateTime start)
         {

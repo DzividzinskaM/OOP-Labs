@@ -71,8 +71,95 @@ namespace Lab5
             xmlHelper.WriteInfoToXml(Bank1, currencies);
 
             Bank bank2 = new Bank("111", "123", "555555");
-            xmlHelper.getInfoFromXml(bank2, currencies);
-           
+            xmlHelper.getInfoFromXml(ref bank2, currencies);
+
+            showInfoFromXml(bank2);
+        }
+
+        private static void showInfoFromXml(Bank bank)
+        {
+            showBankInfo(bank);
+            Console.WriteLine();
+            showClients(bank.Clients);
+            Console.WriteLine();
+            showCredits(bank.credits);
+            Console.WriteLine();
+            showDeposit(bank.deposits);
+            Console.WriteLine();
+            showClientCredits(bank.ClientCredit);
+            Console.WriteLine();
+            showClientDeposits(bank.ClientDeposit);
+            Console.WriteLine();
+        }
+
+        private static void showBankInfo(Bank bank)
+        {
+            Console.WriteLine($"Bank {bank.name}");
+            Console.WriteLine($"Phone {bank.phone}");
+            Console.WriteLine($"Address {bank.address}");
+        }
+
+        private static void showClientDeposits(List<Deposit> clientDeposits)
+        {
+            Console.WriteLine("Deposits of clients");
+            foreach (var val in clientDeposits)
+            {
+                Console.WriteLine($"Client id - {val.clientId}, Deposit id - " +
+                    $"{val.depositId}," +
+                    $" Sum - {val.startSum}{val.currency.name}");   
+            }
+        }
+
+        private static void showClientCredits(List<Credit> clientCredits)
+        {
+            Console.WriteLine("Credits of clients");
+            foreach (var val in clientCredits)
+            {
+                Console.WriteLine($"Client id - {val.clientId}, Credit id - " +
+                    $"{val.creditId}," +
+                    $" Sum - {val.sum}{val.currency.name}");
+            }
+
+        }
+
+        private static void showDeposit(List<DepositInfo> deposits)
+        {
+            Console.WriteLine("Deposits");
+            foreach (var val in deposits)
+            {
+                string cur = "";
+                foreach (var c in val.CurrencyPercent)
+                {
+                    cur = cur + " " + c.Key.name + " " + c.Value + "% ";
+                }
+
+                Console.WriteLine($"{val.id}. {val.name}: {cur}");
+            }
+        }
+
+        private static void showCredits(List<CreditInfo> credits)
+        {
+            Console.WriteLine("Credits");
+            foreach (var credit in credits)
+            {
+                string cur = "";
+                foreach (var c in credit.CurrencyPercent)
+                {
+                    cur = cur + " " + c.Key.name + " " + c.Value + "% ";
+
+                }
+
+                Console.WriteLine($"{credit.id}. {credit.name}: {cur}");
+            }
+        }
+
+        private static void showClients(List<Client> clients)
+        {
+            Console.WriteLine("Clients");
+            foreach (var client in clients)
+            {
+                Console.WriteLine($"{client.firstName} {client.lastName} - {client.ITN}");
+            }
         }
     }
 }

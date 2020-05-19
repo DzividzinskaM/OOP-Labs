@@ -46,5 +46,18 @@ namespace Lab5Lib
             }
 
         }
+
+        public Deposit(int clientId, int depositId,
+            string accountNumber, double sum, Currency currency,
+            DateTime start, DateTime end)
+        {
+            this.clientId = clientId;
+            this.depositId = depositId;
+            this.accountNumber = accountNumber;
+            startSum = sum;
+            this.currency = currency;
+            startDate = start;
+            endDate = end;
+        }
     }
 }
