@@ -17,6 +17,10 @@ namespace Lab5
             Client client2 = new Client("Pavlo", "Pavlov", 0123450, "0002");
             Client client3 = new Client("Sudir", "Sudorov", 012530, "03215");
             Client client4 = new Client("Petro", "Petrov", 12589, "4567");
+            Client client5 = new Client("nameClient5", "lastNameClient5", 15151, "78945");
+            Client client6 = new Client("nameClient6", "lastNameClient6", 16161, "65432");
+
+
 
             Bank Bank1 = new Bank("Bank1", "Kyiv", "5555");
 
@@ -24,6 +28,10 @@ namespace Lab5
             Bank1.addClient(client2);
             Bank1.addClient(client3);
             Bank1.addClient(client4);
+            Bank1.addClient(client5);
+            Bank1.addClient(client6);
+
+
 
             List<Currency> currencies = new List<Currency>();
             Currency usd = new Currency("usd", 26.75, 27.027);
@@ -38,11 +46,15 @@ namespace Lab5
                 1000, 10, ua);
             DepositInfo deposit2 = new DepositInfo(212, "Second Deposit", 20,
                 5000, 11, ua);
+            DepositInfo deposit3 = new DepositInfo(213, "Third Deposit", 24,
+                4000, 12, ua);
             deposit1.addCurrency(usd, 7, 40);
             deposit2.addCurrency(usd, 6, 200);
 
             Bank1.deposits.Add(deposit1);
             Bank1.deposits.Add(deposit2);
+            Bank1.deposits.Add(deposit3);
+
 
             Bank1.giveDepositToClient(client3, deposit1, "123456",
                 1000, ua, DateTime.Now.AddDays(1));
@@ -64,6 +76,10 @@ namespace Lab5
                 500, DateTime.Now.AddDays(1));
             Bank1.giveCreditToClient(client2, credit2, ua, 100000,
                 15000, DateTime.Now.AddDays(1));
+            Bank1.giveCreditToClient(client5, credit1, ua, 50000,
+                15000, DateTime.Now.AddDays(1));
+            Bank1.giveCreditToClient(client6, credit2, eur, 2500,
+                15000, DateTime.Now.AddDays(1));
 
 
             XMLHelper xmlHelper = new XMLHelper("BANK.xml");
@@ -74,8 +90,65 @@ namespace Lab5
             xmlHelper.getInfoFromXml(ref bank2, currencies);
 
             showInfoFromXml(bank2);
+
+
+            Console.WriteLine("QUERIES");
+
+            //get Clients using Linq
+            showClients(xmlHelper.getClients());
+            Console.WriteLine();
+
+            //get sorted clients lst using Linq
+            Console.WriteLine("Sorted");
+            showClients(xmlHelper.getSortedClients());
+            Console.WriteLine();
+
+            //client credits in some currency
+            Console.WriteLine("credit with currency usd");
+            showClientCredits(xmlHelper.getClientCreditsByCurrency(usd));
+            Console.WriteLine();
+
+            //clients deposit with client name
+            Console.WriteLine("clients deposit with client name and deposit name instead of id");
+            showNewDeposit(xmlHelper.getDepositWithClientName());
+            Console.WriteLine();
+
+            //Group client credit by currency
+            Console.WriteLine("Group client credit by currency");
+            showClientCreditsByCurrency(xmlHelper.getClientCreditsGroupByCurrency());
+            Console.WriteLine();
+
+            //get deposits which clients don't choose
+            Console.WriteLine("Check somebody has credit in eur");
+            if(xmlHelper.checkSmbHasCreditInCurrency(eur))
+                Console.WriteLine("yes");
+            else
+                Console.WriteLine("not");
+            Console.WriteLine();
+
+            //get credits where sum more than some number
+            Console.WriteLine("get credits where sum more than 20000");
+            showClientCredits(xmlHelper.getCreditWhereSumMoreThan(20000));
+            Console.WriteLine();
+
+            //get count of clients which last name start with some letter or string
+            Console.Write("Count of clients which last name start from P ");
+            Console.WriteLine(xmlHelper.getCountOfClients("P"));
+            Console.WriteLine();
+
+            //get min Start sum of  deposit
+            Console.Write("min start sum in client deposit is ");
+            Console.WriteLine(xmlHelper.getMinSumInDeposit());
+            Console.WriteLine();
+
+            //get general sum of all credits in some currency
+            Console.Write("general sum of client credits in ua ");
+            Console.WriteLine(xmlHelper.getGeneralClientSum(ua));
+            Console.WriteLine();
+
         }
 
+      
         private static void showInfoFromXml(Bank bank)
         {
             showBankInfo(bank);
@@ -110,7 +183,7 @@ namespace Lab5
             }
         }
 
-        private static void showClientCredits(List<Credit> clientCredits)
+        private static void showClientCredits(IEnumerable<Credit> clientCredits)
         {
             Console.WriteLine("Credits of clients");
             foreach (var val in clientCredits)
@@ -153,13 +226,37 @@ namespace Lab5
             }
         }
 
-        private static void showClients(List<Client> clients)
+        private static void showClients(IEnumerable<Client> clients)
         {
             Console.WriteLine("Clients");
             foreach (var client in clients)
             {
-                Console.WriteLine($"{client.firstName} {client.lastName} - {client.ITN}");
+                Console.WriteLine($"{client.lastName} {client.firstName} - {client.ITN}");
             }
         }
+
+        private static void showNewDeposit(IEnumerable<newDeposit> deposits)
+        {
+            Console.WriteLine("Deposits");
+            foreach (var value in deposits)
+            {
+                Console.WriteLine($"Client {value.clientName}, deposit - {value.depositName}, " +
+                    $"start sum - {value.startSum}");
+            }
+        }
+
+        private static void showClientCreditsByCurrency(IEnumerable<IGrouping<Currency, Credit>> credits)
+        {
+            foreach (IGrouping<Currency, Credit> credit in credits)
+            {
+                Console.Write($"{credit.Key.name} ");
+                foreach (var value in credit)
+                {
+                    Console.Write($"{value.creditId} ");
+                }
+                Console.WriteLine();
+            }
+        }
+
     }
 }

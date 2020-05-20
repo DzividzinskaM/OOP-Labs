@@ -3,13 +3,31 @@ using System.Collections.Generic;
 using System.Text;
 using Lab5Lib;
 using System.Xml;
+using System.Xml.Linq;
+using System.Linq;
 
 namespace Lab5
 {
+    public class newDeposit
+    {
+        public string clientName { get; }
+        public string depositName{ get; }
+        public double startSum { get; }
+        public Currency currency { get; }
+
+        public newDeposit(string clientName, string depositName, double sum, Currency currency)
+        {
+            this.clientName = clientName;
+            this.depositName= depositName;
+            startSum = sum;
+            this.currency = currency;
+        }
+    }
     public class XMLHelper
     {
         public string fileName { get; }
         public readonly XmlDocument document;
+        public readonly XDocument doc;
         private string financialInfoElemName = "FinancialInfo";
         private string firstNameAttrName = "firstName";
         private string lastNameAttrName = "lastName";
@@ -52,6 +70,7 @@ namespace Lab5
             fileName = name;
             document = new XmlDocument();
             document.Load(fileName);
+            doc = XDocument.Load(fileName);
         }
         public void WriteInfoToXml(Bank bank, List<Currency> currencies)
         {
@@ -190,6 +209,7 @@ namespace Lab5
 
             }
         }
+
 
         public void getInfoFromXml(ref Bank bank, List<Currency> currencies)
         {
@@ -444,6 +464,143 @@ namespace Lab5
                 ClientDepositLst.Add(new Deposit(clientId, depositId, accountNumber, startSum, currency, startDate, endDate));
             }
             return ClientDepositLst;
+        }
+
+
+
+
+        // QUERIES
+
+        public IEnumerable<Client> getClients()
+        {
+            var clients = from client in doc.Element(financialInfoElemName).Element(BankElemName)
+                          .Element(clientsElemName).Elements(clientElemName)
+                        select new Client(client.Attribute(firstNameAttrName).Value,
+                                                            client.Attribute(lastNameAttrName).Value,
+                                                            int.Parse(client.Attribute(ITNAttrName).Value),
+                                                            client.Attribute(phoneAttrName).Value);
+
+            return clients;
+
+        }
+
+        public IEnumerable<Client> getSortedClients()
+        {
+            var clients = from client in doc.Element(financialInfoElemName).Element(BankElemName)
+                          .Element(clientsElemName).Elements(clientElemName)
+                          orderby client.Attribute(lastNameAttrName).Value,
+                          client.Attribute(firstNameAttrName).Value descending
+                          select new Client(client.Attribute(firstNameAttrName).Value,
+                                                            client.Attribute(lastNameAttrName).Value,
+                                                            int.Parse(client.Attribute(ITNAttrName).Value),
+                                                            client.Attribute(phoneAttrName).Value);
+            return clients;
+        }
+
+        public IEnumerable<Credit> getClientCreditsByCurrency(Currency currency)
+        {
+            var credits = from credit in doc.Element(financialInfoElemName).Element(BankElemName)
+                       .Elements(clientCreditsElemName).Elements(clientCreditElemName)
+                       where credit.Element(currencyElemName).Element(nameAttrName).Value == currency.name
+                       select new Credit(
+                           int.Parse(credit.Attribute(creditIdAttrName).Value),
+                           int.Parse(credit.Attribute(clientIdAttrName).Value),
+                           double.Parse(credit.Attribute(sumAttrName).Value),
+                           double.Parse(credit.Attribute(startSumElemName).Value),
+                           currency,
+                            Convert.ToDateTime(credit.Element(dateParamElemName).Attribute(startDateAttrName).Value),
+                            Convert.ToDateTime(credit.Element(dateParamElemName).Attribute(endDateAttrName).Value)                    
+                       );
+
+            return credits;
+        }
+
+        public IEnumerable<newDeposit> getDepositWithClientName()
+        {
+            var deposits = from deposit in doc.Element(financialInfoElemName).Element(BankElemName)
+                           .Element(clientDepositsElemName).Elements(clientDepositElemName)
+                           join client in doc.Element(financialInfoElemName).Element(BankElemName)
+                                                .Element(clientsElemName).Elements(clientElemName)
+                           on (int)deposit.Attribute(clientIdAttrName) equals
+                           (int)client.Attribute(idAttrName) 
+                           join depositInfo in doc.Element(financialInfoElemName).Element(BankElemName)
+                                                   .Element(depositsElemName).Elements(depositElemName)
+                           on (int)deposit.Attribute(depositIdAttrName) equals
+                           (int) depositInfo.Attribute(idAttrName)
+                           select new newDeposit(($"{client.Attribute(firstNameAttrName).Value} {client.Attribute(lastNameAttrName).Value}"),
+                           depositInfo.Attribute(nameAttrName).Value,
+                           double.Parse(deposit.Attribute(startSumElemName).Value),
+                           getCurrencyByName(getCurrencyLstFromXml(), deposit.Element(currencyElemName).Value)
+                           );
+            return deposits;
+
+        }
+
+        public IEnumerable<IGrouping<Currency, Credit>> getClientCreditsGroupByCurrency()
+        {
+            var credits = from credit in doc.Element(financialInfoElemName).Element(BankElemName)
+                          .Element(clientCreditsElemName).Elements(clientCreditElemName)
+                          group new Credit(
+                           int.Parse(credit.Attribute(creditIdAttrName).Value),
+                           int.Parse(credit.Attribute(clientIdAttrName).Value),
+                           double.Parse(credit.Attribute(sumAttrName).Value),
+                           double.Parse(credit.Attribute(startSumElemName).Value),
+                           getCurrencyByName(getCurrencyLstFromXml(),
+                           credit.Element(currencyElemName).Element(nameAttrName).Value),
+                           Convert.ToDateTime(credit.Element(dateParamElemName).Attribute(startDateAttrName).Value),
+                           Convert.ToDateTime(credit.Element(dateParamElemName).Attribute(endDateAttrName).Value))
+                          by getCurrencyByName(getCurrencyLstFromXml(),
+                           credit.Element(currencyElemName).Element(nameAttrName).Value);
+            return credits;  
+
+        }
+
+        public bool checkSmbHasCreditInCurrency(Currency currency)
+        {
+            bool answer = doc.Descendants(clientCreditElemName)
+                .Any(credit => credit.Element(currencyElemName).Element(nameAttrName).Value == currency.name);
+            return answer;
+        }
+
+        public IEnumerable<Credit> getCreditWhereSumMoreThan(int sum)
+        { 
+            var credits = doc.Descendants(clientCreditElemName)
+                .Where(credit => double.Parse(credit.Attribute(sumAttrName).Value) > sum)
+                .Select(credit => new Credit(
+                           int.Parse(credit.Attribute(creditIdAttrName).Value),
+                           int.Parse(credit.Attribute(clientIdAttrName).Value),
+                           double.Parse(credit.Attribute(sumAttrName).Value),
+                           double.Parse(credit.Attribute(startSumElemName).Value),
+                           getCurrencyByName(getCurrencyLstFromXml(),
+                                    credit.Element(currencyElemName).Element(nameAttrName).Value),
+                           Convert.ToDateTime(credit.Element(dateParamElemName).Attribute(startDateAttrName).Value),
+                           Convert.ToDateTime(credit.Element(dateParamElemName).Attribute(endDateAttrName).Value)
+                       ));
+            return credits;
+        }
+
+        public int getCountOfClients(string start)
+        {
+            var count = doc.Descendants(clientElemName)
+                .Where(client => client.Attribute(lastNameAttrName).Value.StartsWith(start))
+                .Count();
+            return count;
+        }
+
+        public double getMinSumInDeposit()
+        {
+            var min = doc.Descendants(clientDepositElemName)
+                .Min(deposit => double.Parse(deposit.Attribute(startSumElemName).Value));
+
+            return min;
+        }
+        public double getGeneralClientSum(Currency currency)
+        {
+            var sum = doc.Descendants(clientCreditElemName)
+                .Where(credit => credit.Element(currencyElemName).Element(nameAttrName).Value == currency.name)
+                .Sum(credit => double.Parse(credit.Attribute(sumAttrName).Value));
+
+            return sum;
         }
 
 
