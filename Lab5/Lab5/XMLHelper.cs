@@ -597,7 +597,8 @@ namespace Lab5
         public double getGeneralClientSum(Currency currency)
         {
             var sum = doc.Descendants(clientCreditElemName)
-                .Where(credit => credit.Element(currencyElemName).Element(nameAttrName).Value == currency.name)
+                .Where(credit => credit.Element(currencyElemName).Element(nameAttrName)
+                .Value == currency.name)
                 .Sum(credit => double.Parse(credit.Attribute(sumAttrName).Value));
 
             return sum;

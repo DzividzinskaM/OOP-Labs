@@ -1,0 +1,8 @@
+C:\Users\Smart\source\repos\OOP\Lab6\Lab6Lib\bin\Debug\netcoreapp3.1\Lab6Lib.deps.json
+C:\Users\Smart\source\repos\OOP\Lab6\Lab6Lib\bin\Debug\netcoreapp3.1\Lab6Lib.dll
+C:\Users\Smart\source\repos\OOP\Lab6\Lab6Lib\obj\Debug\netcoreapp3.1\Lab6Lib.AssemblyInfoInputs.cache
+C:\Users\Smart\source\repos\OOP\Lab6\Lab6Lib\obj\Debug\netcoreapp3.1\Lab6Lib.AssemblyInfo.cs
+C:\Users\Smart\source\repos\OOP\Lab6\Lab6Lib\bin\Debug\netcoreapp3.1\Lab6Lib.pdb
+C:\Users\Smart\source\repos\OOP\Lab6\Lab6Lib\obj\Debug\netcoreapp3.1\Lab6Lib.dll
+C:\Users\Smart\source\repos\OOP\Lab6\Lab6Lib\obj\Debug\netcoreapp3.1\Lab6Lib.pdb
+C:\Users\Smart\source\repos\OOP\Lab6\Lab6Lib\obj\Debug\netcoreapp3.1\Lab6Lib.csprojAssemblyReference.cache
